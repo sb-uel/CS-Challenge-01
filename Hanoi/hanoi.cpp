@@ -6,8 +6,7 @@ using namespace std;
 
 int numDiscos, numTorres, medio;
 
-void imprimirPinos(vector<vector<int>> pinos)
-{
+void imprimirPinos(vector<vector<int>> pinos) {
 	for (int i = numDiscos - 1; i >= 0; i--) {
 		for (int j = 0; j < numTorres; j++) {
 			int tamanho = pinos[j].size() - 1;
@@ -20,11 +19,9 @@ void imprimirPinos(vector<vector<int>> pinos)
 	}
 }
 
-int jogar(int origem, int destino, vector<int> &topo, vector<vector<int>> &pino)
-{
+int jogar(int origem, int destino, vector<int> &topo, vector<vector<int>> &pino) {
 	if (origem > numTorres || destino < 0 || destino > numTorres)
 		return -1;
-
 
 	if ( ((topo[destino] < topo[origem]) && topo[destino] > 0) || (topo[origem] == 0) || origem == destino)
 		return - 2;
@@ -69,13 +66,11 @@ int main() {
 
 	imprimirPinos(pinos);
 	bool win = false;
-	for (int i = 0; i < qtdJogadas; i++)
-	{
+	for (int i = 0; i < qtdJogadas; i++) {
 		cout << endl;
 		cin >> origem >> destino;
 
-		switch (jogar(origem-1, destino-1, topo, pinos))
-		{
+		switch (jogar(origem-1, destino-1, topo, pinos)) {
 		case -1:
 			cout << "Tanto o pino de origem como o pino de destino devem ser valores de 1 a " << numTorres << endl;
 			i--;
